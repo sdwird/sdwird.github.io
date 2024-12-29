@@ -1,52 +1,42 @@
-# Workflow: Deploy static content to GitHub Pages for the 'sdwird' website
-name: Deploy sdwird static content to Pages
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sdwird - Welcome</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to sdwird</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-on:
-  # Trigger workflow on pushes to the main branch
-  push:
-    branches: ["main"]
+    <main>
+        <section id="home">
+            <h2>Home</h2>
+            <p>This is the homepage of sdwird, your go-to site for amazing content!</p>
+        </section>
 
-  # Allow manual trigger from the Actions tab
-  workflow_dispatch:
+        <section id="about">
+            <h2>About</h2>
+            <p>sdwird is a platform created to showcase modern web development techniques and content delivery.</p>
+        </section>
 
-# Configure permissions for deployment
-permissions:
-  contents: read   # Read access to the repository content
-  pages: write     # Write access to GitHub Pages
-  id-token: write  # Enable authentication via GitHub's OIDC
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>If you'd like to get in touch, email us at <a href="mailto:contact@sdwird.com">contact@sdwird.com</a>.</p>
+        </section>
+    </main>
 
-# Prevent overlapping runs, but allow in-progress runs to finish
-concurrency:
-  group: "sdwird-pages"
-  cancel-in-progress: false
-
-jobs:
-  deploy:
-    # Define the deployment environment for GitHub Pages
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    # Use the latest Ubuntu runner
-    runs-on: ubuntu-latest
-
-    steps:
-      # Step 1: Check out the repository code
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      # Step 2: Configure GitHub Pages settings
-      - name: Setup GitHub Pages
-        uses: actions/configure-pages@v5
-
-      # Step 3: Upload the repository content as an artifact
-      - name: Upload site content
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload all files in the repository
-          path: '.'
-
-      # Step 4: Deploy the uploaded content to GitHub Pages
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+    <footer>
+        <p>&copy; 2024 sdwird. All rights reserved.</p>
+    </footer>
+</body>
+</html>
