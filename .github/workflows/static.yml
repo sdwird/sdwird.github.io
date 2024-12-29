@@ -1,42 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sdwird - Welcome</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Welcome to sdwird</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+# static.yml örneği
 
-    <main>
-        <section id="home">
-            <h2>Home</h2>
-            <p>This is the homepage of sdwird, your go-to site for amazing content!</p>
-        </section>
+site_name: "My Static Website"
+site_url: "https://www.mystaticsite.com"
+site_description: "Bu, basit bir statik site örneğidir."
 
-        <section id="about">
-            <h2>About</h2>
-            <p>sdwird is a platform created to showcase modern web development techniques and content delivery.</p>
-        </section>
+# Genel site ayarları
+theme: "minimal"  # Temanızı buraya yazabilirsiniz.
+base_url: "/"
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>If you'd like to get in touch, email us at <a href="mailto:contact@sdwird.com">contact@sdwird.com</a>.</p>
-        </section>
-    </main>
+# Sayfalar
+pages:
+  - title: "Ana Sayfa"
+    url: "/"
+    template: "index.html"
 
-    <footer>
-        <p>&copy; 2024 sdwird. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+  - title: "Hakkımızda"
+    url: "/about"
+    template: "about.html"
+
+  - title: "İletişim"
+    url: "/contact"
+    template: "contact.html"
+
+# Sosyal medya bağlantıları
+social:
+  twitter: "https://twitter.com/mystaticsite"
+  facebook: "https://facebook.com/mystaticsite"
+  linkedin: "https://linkedin.com/company/mystaticsite"
+
+# Dil ayarları
+language: "tr"
+
+# SEO ayarları
+seo:
+  meta_description: "Bu, My Static Website hakkında kısa bir açıklamadır."
+  meta_keywords: "statik, web, site, örnek"
+  google_analytics: "UA-XXXXXXX-X"  # Google Analytics kimliğinizi buraya ekleyin
